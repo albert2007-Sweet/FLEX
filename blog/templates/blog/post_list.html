@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|McLaren&display=swap" rel="stylesheet">
+
+    <title>Title</title>
+    <style>
+        .box{
+            width:400px; height:auto;
+            border: 1px solid lightgray;
+            border-radius : 5px;
+            display : inline-block;
+            margin-left:30px;
+            margin-botton:20px;
+        }
+        img{
+            width:380px;
+            height:380px;
+            margin:auto;
+            display:block;
+        }
+        h1{
+            text-align:center;
+            font-family: 'McLaren', cursive;
+
+        }
+        p{
+            text-align:center;
+            font-family: 'Gamja Flower', cursive;
+
+        }
+        .label{
+            color: green;
+            font-size :17px;
+            font-family: 'McLaren', cursive;
+        }
+        .potato{
+            font-size:22px;
+        }
+        #box_title{
+            font-family: 'Gamja Flower', cursive;
+            font-size:30px;
+        }
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1 id="title">Blog <span id="title_small">made with Django</span></h1>
+    <a href="{% url 'blog_create' %}">
+        <button>Create</button>
+    </a>
+    {% for post in object_list %}
+    <div class="box">
+        <p id="box_title">{{ post.title }}</p>
+        <div class="imgBox">
+            <a href="{% url 'blog_detail' post.id %}"><img src="{{ post.image.url }}"></a>
+        </div>
+
+        <p class="description"><span class="label">Description :</span> <span class="potato">{{ post.description }}</span></p>
+        <p><span class="label">Create Date :</span> <span class="potato">{{ post.create_date }}</span></p>
+        <p><span class="label">Modify Date :</span> <span class="potato">{{ post.modify_date }}</span></p>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>

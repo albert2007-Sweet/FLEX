@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css?family=Gamja+Flower|McLaren&display=swap" rel="stylesheet">
+
+    <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://albert2007.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+    </script>
+    <style>
+        p{
+            text-align:left;
+            font-family: 'Gamja Flower', cursive;
+            font-size:22px;
+            margin-top: -10px;
+            margin-left:300px;
+
+        }
+        h1{
+            text-align:center;
+            font-family: 'Gamja Flower', cursive;
+            font-size:40px;
+
+        }
+        img{
+            display:block;
+            margin:auto;
+        }
+        .name{
+            font-size:24px;
+            color:darkred;
+        }
+
+
+    </style>
+</head>
+<body>
+<div id="content">
+    <h1>{{ object.title }}</h1>
+    <a href="{% url 'blog_update' post.id %}"><button>Update</button></a>
+    <a href="{% url 'blog_delete' post.id %}"><button>DELETE</button></a>
+    <div>
+        <p><span class="name">Description:</span> {{ post.description }}</p>
+        <p><span class="name">Create Date :</span> {{ post.create_date }}</p>
+        <p><span class="name">Modify Date :</span> {{ post.modify_date }}</p>
+        <img src="{{ object.image.url }}" width="500" height="500">
+        <div id="disqus_thread"></div>
+
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
