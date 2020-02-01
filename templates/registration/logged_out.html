@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<div class="content">
 <p style="font-size:22px;">Successfully Logged Out</p>
 <p><a href="{% url 'index' %}">Go Index</a></p>
 <p><a href="{% url 'login' %}">Sign In Again</a></p>
+</div>
 
-</body>
-</html>
+{% endblock content%}

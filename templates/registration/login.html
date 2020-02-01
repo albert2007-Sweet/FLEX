@@ -1,22 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
 
-<form method="post" action=".">{% csrf_token %}
-    <div>
-        {{ form.username.label_tag }} {{ form.username }}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <form method="post" action=".">{% csrf_token %}
+
+                <div class="col-md-4">
+                    <div class="row loginform">
+                        <div class="col-md-6">USERNAME <span class="glyphicon glyphicon-user"></span></div>
+                        <div class="col-md-6">{{ form.username }}</div>
+                    </div>
+                    <div class="row loginform">
+                        <div class="col-md-6">PASSWORD <span class="glyphicon glyphicon-lock"></span></div>
+                        <div class="col-md-6">{{ form.password }}</div>
+                    </div>
+                    <div class="loginform">
+                        <button type="submit" class="btn btn-info bigbutton">Sign In</button>
+                        <input type="hidden" value="{{ next }}">
+                    </div>
+                </div>
+            </form>
+            <div class="col-md-4"></div>
+        </div>
     </div>
-    <div>
-        {{ form.password.label_tag }} {{ form.password }}
-    </div>
-    <button type="submit">Sign In</button>
-    <input type="hidden" value="{{ next }}"
+</div>
 
-
-</form>
-</body>
-</html>
+{% endblock content%}

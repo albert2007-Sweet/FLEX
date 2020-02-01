@@ -7,7 +7,7 @@ from django.core.urlresolvers import reverse_lazy
 
 
 class Indexview(TemplateView):
-    template_name = 'index.html'
+    template_name = 'new_index.html'
 
 class aboutView(TemplateView):
     template_name = 'File.html'
