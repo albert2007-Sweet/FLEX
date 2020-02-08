@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
 
-<form method="post" action=".">{% csrf_token %}
+<form method="post" action="." class="content"style="text-align:center;">{% csrf_token %}
     정말 삭제하시겠습니까?
     <button type="submit">DELETE</button>
+    </form>
 
 
 
-</form>
-</body>
-</html>
+{% endblock content%}
